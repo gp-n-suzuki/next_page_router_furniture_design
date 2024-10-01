@@ -2,7 +2,7 @@
 import Layout from "@/components/Layout/Layout";
 import Link from "next/link";
 import styles from "@/styles/top.module.css"
-import Card from "@/components/Cards/Card";
+import Card from "@/components/Card/Card";
 import { Item } from "@/types/Item";
 import { useEffect, useState } from "react";
 
@@ -25,7 +25,9 @@ export default function Home() {
     <Layout>
       <div className={styles.wrapper}>
         <div className={styles.grid_container}>
-          <Card items={items} />
+          {items.map((item, index) => (
+            <Card item={item} key={index} />
+          ))}
         </div>
         <div className={styles.more}>
           <Link href={"/products/1"}>View More</Link>

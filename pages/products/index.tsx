@@ -1,4 +1,4 @@
-import Card from '@/components/Cards/Card'
+import Card from '@/components/Card/Card'
 import Layout from '@/components/Layout/Layout'
 import React, { useEffect, useState } from 'react'
 import styles from '@/styles/products.module.css'
@@ -27,7 +27,9 @@ const Products = () => {
       <div className={styles.wrapper}>
         <h2 className={styles.heading}>Products</h2>
         <div className={styles.grid_container}>
-          <Card items={items} />
+          {items.map((item, index) => (
+            <Card item={item} key={index} />
+          ))}
         </div>
         <Paginator totalPages={totalPages} setPage={setPage} />
       </div>
